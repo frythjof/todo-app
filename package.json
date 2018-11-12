@@ -5,13 +5,15 @@
   "dependencies": {
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "styled-components": "^4.0.3",
+    "uid": "0.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && rm -rf docs && mv build docs",
+    "start": "craco start",
+    "build": "craco build && rm -rf docs && mv build docs",
     "deploy": "npm run build && cd docs && now --public",
-    "test": "react-scripts test",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -22,5 +24,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@craco/craco": "^2.2.3",
+    "babel-plugin-styled-components": "^1.8.0"
+  }
 }

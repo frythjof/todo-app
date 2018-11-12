@@ -6,13 +6,13 @@
   color: white;
 }
 
+.Todo .Done {
+  text-decoration: line-through;
+}
+
 button {
   margin-left: auto;
   background-color: deeppink;
   color: white;
   border-radius: 50%;
-}
-
-.Done {
-  text-decoration: line-through;
 }
