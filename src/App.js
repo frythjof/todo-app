@@ -1,28 +1,62 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Input from './Input'
+import Todo from './Todo'
+import './App.css'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+  state = { 
+    todos: this.load()
   }
+
+  render() {
+    this.save()
+    return (
+    <Input />
+    <ul className="List" >
+    {this.renderTodos()}
+    </ul>
+    )
+  }
+
+renderTodos(){
+  return this.state.todos.map(todo => (
+    <Todo
+      key={todo.index}
+      {...todo}
+      onClick={() => this.openDoor(door.number)}
+    />
+  ))
 }
 
-export default App;
+addTodo() {
+
+}
+
+toggleDone() {
+  const { todos } = this.state
+    const index = todos.findIndex(t => d.number === number)
+    const newTodos = [
+      ...todos.slice(0, index),
+      { ...todos[index], done: true },
+      ...todos.slice(index + 1)
+    ]
+
+    this.setState({
+      todos: newTodos
+    })
+}
+
+
+save() {
+  localStorage.setItem('todo-app--todos', JSON.stringify(this.state.todos))
+}
+
+load() {
+  try {
+    return JSON.parse(localStorage.getItem('todo-app--todos')) || []
+} catch(err) {
+  return []
+}
+}
+
+export default App
