@@ -9,12 +9,13 @@ const Wrapper = styled.section`
 
 const Text = styled.span`
   white-space: nowrap;
+  font-weight: bold;
 `
 
 const Line = styled.div`
   margin: 0 10px;
   width: 100%;
-  border-bottom: ${props => props.width || 4}px solid deeppink;
+  border-bottom: ${props => props.borderwidth || 4}px solid deeppink;
   // Erst definiere ich mit der Arrow-fct, dass es hier props gibt und dann was genommen werden soll.
 `
 
@@ -22,9 +23,9 @@ export default class Separator extends Component {
   render() {
     return (
       <Wrapper>
-        <Line width={10} />
+        <Line borderwidth={10} />
         <Text>{this.props.text}</Text>
-        <Line />
+        <Line borderwidth={10} />
       </Wrapper>
     )
   }

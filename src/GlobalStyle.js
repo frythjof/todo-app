@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`

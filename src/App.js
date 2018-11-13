@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Input from './Input'
 import Todo from './Todo'
 import Separator from './Separator'
+import ProgressBar from './ProgressBar'
 import uid from 'uid'
 //import './App.css'
 import styled from 'styled-components'
@@ -25,7 +26,11 @@ class App extends Component {
       // this.load()
       { text: 'Geschenk1', done: false, id: 'kjhwerq' },
       { text: 'Geschenk2', done: false, id: 'kjhwerz' },
-      { text: 'Geschenk3', done: false, id: 'kjhwert' }
+      { text: 'Geschenk3', done: false, id: 'kjhwert' },
+      { text: 'Geschenk4', done: false, id: 'kjhwers' },
+      { text: 'Geschenk5', done: false, id: 'kjhwerd' },
+      { text: 'Geschenk6', done: false, id: 'kjhwerf' },
+      { text: 'Geschenk7', done: false, id: 'kjhwerg' }
     ]
   }
 
@@ -38,6 +43,12 @@ class App extends Component {
         <TodoList>{this.renderOpenTodos()}</TodoList>
         <Separator text="DONE" />
         <TodoList>{this.renderDoneTodos()}</TodoList>
+        <ProgressBar
+          text="Progress: "
+          progress={
+            (this.renderDoneTodos().length / this.state.todos.length) * 100
+          }
+        />
       </Container>
     )
   }
