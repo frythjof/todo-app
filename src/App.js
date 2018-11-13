@@ -1,8 +1,23 @@
 import React, { Component } from 'react'
 import Input from './Input'
 import Todo from './Todo'
+import Separator from './Separator'
 import uid from 'uid'
-import './App.css'
+//import './App.css'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: grid;
+  grid-auto-rows: min-content;
+  padding: 0 10px;
+  height: 100vh;
+  background-color: darkgray;
+`
+
+const TodoList = styled.ul`
+  display: grid;
+  grid-gap: 10px;
+`
 
 class App extends Component {
   state = {
@@ -17,24 +32,35 @@ class App extends Component {
   render() {
     this.save()
     return (
-      <div className="Container">
+      <Container>
         <Input onEnter={this.addTodo} />
-        <ul className="list">{this.renderTodos()}</ul>
-      </div>
+        <Separator text="TO DO" />
+        <TodoList>{this.renderOpenTodos()}</TodoList>
+        <Separator text="DONE" />
+        <TodoList>{this.renderDoneTodos()}</TodoList>
+      </Container>
     )
   }
 
-  renderTodos() {
-    return this.state.todos.map(todo => (
-      <Todo
-        key={todo.id}
-        text={todo.text}
-        done={todo.done}
-        onToggle={() => this.toggleTodo(todo.id)}
-        onDelete={() => this.deleteTodo(todo.id)}
-      />
-    ))
+  renderOpenTodos() {
+    return this.state.todos
+      .filter(todo => !todo.done)
+      .map(this.renderSingleTodo)
   }
+
+  renderDoneTodos() {
+    return this.state.todos.filter(todo => todo.done).map(this.renderSingleTodo)
+  }
+
+  renderSingleTodo = todo => (
+    <Todo
+      key={todo.id}
+      text={todo.text}
+      done={todo.done}
+      onToggle={() => this.toggleTodo(todo.id)}
+      onDelete={() => this.deleteTodo(todo.id)}
+    />
+  )
 
   addTodo = text => {
     this.setState({

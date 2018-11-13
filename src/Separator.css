@@ -1,0 +1,14 @@
+.Separator {
+  display: flex;
+  align-items: center;
+}
+
+.Separator .hr {
+  margin: 0 10px;
+  width: 100%;
+  border-bottom: 4px solid deeppink;
+}
+
+.Separator span {
+  white-space: nowrap;
+}
