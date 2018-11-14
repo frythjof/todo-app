@@ -17,6 +17,7 @@ const Line = styled.div`
   width: ${props => props.width || 0}%;
   border-bottom: ${props => props.borderwidth || 4}px solid
     rgb(${props => props.r}, ${props => props.g}, 0);
+  transition: all 0.5s;
 `
 
 export default class ProgressBar extends Component {
@@ -27,8 +28,8 @@ export default class ProgressBar extends Component {
         <Line
           borderwidth={10}
           width={this.props.progress}
-          r={((100 - this.props.progress) / 100) * 255}
-          g={(this.props.progress / 100) * 255}
+          r={Math.round(((100 - this.props.progress) / 100) * 255)}
+          g={Math.round((this.props.progress / 100) * 255)}
         />
         <Text>{Math.round(this.props.progress) + '%'}</Text>
       </Wrapper>

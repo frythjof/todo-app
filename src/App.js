@@ -3,6 +3,7 @@ import Input from './Input'
 import Todo from './Todo'
 import Separator from './Separator'
 import ProgressBar from './ProgressBar'
+import ToggleButton from './ToggleButton'
 import uid from 'uid'
 //import './App.css'
 import styled from 'styled-components'
@@ -48,6 +49,12 @@ class App extends Component {
           progress={
             (this.renderDoneTodos().length / this.state.todos.length) * 100
           }
+        />
+        <ToggleButton
+          defaultText="Foo"
+          altText="Bar"
+          isDefault={true}
+          onClick={() => console.log('Hello')}
         />
       </Container>
     )
