@@ -13,7 +13,7 @@ export default class Input extends Component {
     return (
       <StyledInput
         onKeyUp={this.handleKeyUp}
-        placeholder="Insert your todo here"
+        placeholder={this.props.placeholder}
       />
     )
   }

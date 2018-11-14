@@ -9,7 +9,6 @@ const Container = styled.div`
   background-color: cornflowerblue;
   padding: 10px;
   margin: 10px;
-  }
 `
 
 const ToggButton = styled.button`

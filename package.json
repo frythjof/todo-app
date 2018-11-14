@@ -28,13 +28,14 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/core": "^7.1.6",
     "@craco/craco": "^2.2.3",
-    "babel-plugin-styled-components": "^1.8.0",
-    "@storybook/react": "^4.0.6",
     "@storybook/addon-actions": "^4.0.6",
+    "@storybook/addon-knobs": "^4.0.6",
     "@storybook/addon-links": "^4.0.6",
     "@storybook/addons": "^4.0.6",
-    "@babel/core": "^7.1.6",
-    "babel-loader": "^8.0.4"
+    "@storybook/react": "^4.0.6",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-styled-components": "^1.8.0"
   }
 }
