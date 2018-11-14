@@ -25,11 +25,12 @@ const ToggButton = styled.button`
 `
 
 export default class ToggleButton extends Component {
-  
   // Dieser state ist nur ein Startwert, der nur einmal geladen wird:
-  state = { isDefault: this.props.isDefault == null ? true } 
-  // Wenn der der Default-Wert null oder undefined ist, nimm true. 
-  
+  state = {
+    isDefault: this.props.isDefault == null ? true : this.props.isDefault
+  }
+  // Wenn der der Default-Wert null oder undefined ist, nimm true.
+
   render() {
     const { defaultText, altText } = this.props
     const { isDefault } = this.state
