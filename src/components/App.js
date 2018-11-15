@@ -8,7 +8,7 @@ import uid from 'uid'
 //import './App.css'
 import styled from 'styled-components'
 
-const Container = styled.div`
+export const Container = styled.div`
   display: grid;
   grid-auto-rows: min-content;
   padding: 0 10px;
@@ -39,7 +39,7 @@ class App extends Component {
     this.save()
     return (
       <Container>
-        <Input onEnter={this.addTodo} />
+        <Input onEnter={this.addTodo} placeholder="Insert your todo here" />
         <Separator text="TO DO" />
         <TodoList>{this.renderOpenTodos()}</TodoList>
         <Separator text="DONE" />

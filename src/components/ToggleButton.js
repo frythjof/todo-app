@@ -9,7 +9,6 @@ const Container = styled.div`
   background-color: cornflowerblue;
   padding: 10px;
   margin: 10px;
-  }
 `
 
 const ToggButton = styled.button`
@@ -25,11 +24,24 @@ const ToggButton = styled.button`
 `
 
 export default class ToggleButton extends Component {
+  // Um den eigentlich vom ToggleButton selbst verwalteten state von außen verändern/überschreiben zu können:
+  // (Wird hier aber nur für die Knobs von Storybooks benötigt.)
+  static getDerivedStateFromProps(props, state) {
+    return {
+      isDefault:
+        props.isDefault !== state.lastIsDefaultFromProps
+          ? props.isDefault
+          : state.isDefault,
+      lastIsDefaultFromProps: props.isDefault
+    }
+  }
+
   // Dieser state ist nur ein Startwert, der nur einmal geladen wird:
   state = {
-    isDefault: this.props.isDefault == null ? true : this.props.isDefault
+    isDefault: this.props.isDefault == null ? true : this.props.isDefault,
+    lastIsDefaultFromProps: this.props.isDefault
   }
-  // Wenn der der Default-Wert null oder undefined ist, nimm true.
+  // -> Wenn der der Default-Wert null oder undefined ist, nimm true.
 
   render() {
     const { defaultText, altText } = this.props
