@@ -6,13 +6,13 @@ import { linkTo } from '@storybook/addon-links'
 import { text, boolean, number } from '@storybook/addon-knobs'
 
 import { Button, Welcome } from '@storybook/react/demo'
-import GlobalStyle from '../GlobalStyle'
-import Todo from '../Todo'
-import ProgressBar from '../ProgressBar'
-import Input from '../Input'
-import { Container } from '../App'
-import Separator from '../Separator'
-import ToggleButton from '../ToggleButton'
+import GlobalStyle from '../components/GlobalStyle'
+import Todo from '../components/Todo'
+import ProgressBar from '../components/ProgressBar'
+import Input from '../components/Input'
+import { Container } from '../components/App'
+import Separator from '../components/Separator'
+import ToggleButton from '../components/ToggleButton'
 
 storiesOf('Welcome', module).add('to Storybook', () => (
   <Welcome showApp={linkTo('Button')} />
@@ -54,7 +54,7 @@ storiesOf('Todo', module)
     </React.Fragment>
   ))
 
-storiesOf('ProgressBar', module).add('from 10% / 50% / 100%', () => (
+storiesOf('ProgressBar', module).add('from 10% - 100%', () => (
   <Container>
     <ProgressBar text="Progress: " progress="10" />
     <ProgressBar text="Progress: " progress="20" />

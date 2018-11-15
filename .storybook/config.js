@@ -1,7 +1,7 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
-import GlobalStyle from '../src/GlobalStyle'
+import GlobalStyle from '../src/components/GlobalStyle'
 
 addDecorator(withKnobs)
 
