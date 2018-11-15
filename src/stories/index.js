@@ -101,7 +101,7 @@ storiesOf('ToggleButton', module).add('with different text', () => (
     <ToggleButton
       defaultText={text('Display button text', 'Foo')}
       altText={text('Display button alt text', 'Bar')}
-      //isDefault={boolean('Disabled', true)}
+      isDefault={boolean('Disabled', true)}
       onClick={action('console.log')}
     />
     <GlobalStyle />

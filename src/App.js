@@ -53,7 +53,7 @@ class App extends Component {
         <ToggleButton
           defaultText="Foo"
           altText="Bar"
-          //isDefault={true}
+          isDefault={true}
           onClick={() => console.log('Hello')}
         />
       </Container>
