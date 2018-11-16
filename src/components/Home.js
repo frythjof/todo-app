@@ -3,7 +3,7 @@ import Input from './Input'
 import Todo from './Todo'
 import Separator from './Separator'
 import ProgressBar from './ProgressBar'
-import ToggleButton from './ToggleButton'
+//import ToggleButton from './ToggleButton'
 import uid from 'uid'
 //import './Home.css'
 import styled from 'styled-components'
@@ -42,28 +42,40 @@ class Home extends Component {
         <Input onEnter={this.addTodo} placeholder="Insert your todo here" />
         <Separator text="TO DO" />
         <TodoList>{this.renderOpenTodos()}</TodoList>
-        <Separator text="DONE" />
-        <TodoList>{this.renderDoneTodos()}</TodoList>
+
+        <TodoList>
+          {this.props.showDoneTodos && this.renderDoneTodosWithSeparator()}
+        </TodoList>
         <ProgressBar
           text="Progress: "
           progress={
             (this.renderDoneTodos().length / this.state.todos.length) * 100
           }
         />
-        <ToggleButton
+      </Container>
+    )
+  }
+
+  /* <ToggleButton
           defaultText="Foo"
           altText="Bar"
           isDefault={true}
           onClick={() => console.log('Hello')}
-        />
-      </Container>
-    )
-  }
+        /> */
 
   renderOpenTodos() {
     return this.state.todos
       .filter(todo => !todo.done)
       .map(this.renderSingleTodo)
+  }
+
+  renderDoneTodosWithSeparator() {
+    return (
+      <React.Fragment>
+        <Separator text="DONE" />
+        {this.state.todos.filter(todo => todo.done).map(this.renderSingleTodo)}
+      </React.Fragment>
+    )
   }
 
   renderDoneTodos() {

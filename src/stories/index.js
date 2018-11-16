@@ -10,7 +10,7 @@ import GlobalStyle from '../components/GlobalStyle'
 import Todo from '../components/Todo'
 import ProgressBar from '../components/ProgressBar'
 import Input from '../components/Input'
-import { Container } from '../components/App'
+import { Container } from '../components/Home'
 import Separator from '../components/Separator'
 import ToggleButton from '../components/ToggleButton'
 

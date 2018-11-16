@@ -30,23 +30,47 @@ const NavWrapper = styled.div`
   }
 `
 
-const App = () => (
-  <Router>
-    <Wrapper>
-      <div>
-        <Route path="/" exact component={Home} />
-        <Route path="/config/" component={Config} />
-      </div>
-      <NavWrapper>
-        <NavLink exact activeClassName="active" to="/">
-          Home
-        </NavLink>
-        <NavLink activeClassName="active" to="/config/">
-          Settings
-        </NavLink>
-      </NavWrapper>
-    </Wrapper>
-  </Router>
-)
+export default class App extends React.Component {
+  state = {
+    showDoneTodos: true
+  }
 
-export default App
+  toggleShowDoneTodos = () => {
+    this.setState({
+      showDoneTodos: !this.state.showDoneTodos
+    })
+  }
+
+  render() {
+    return (
+      <Router>
+        <Wrapper>
+          <div>
+            <Route
+              path="/"
+              exact
+              render={() => <Home showDoneTodos={this.state.showDoneTodos} />}
+            />
+            <Route
+              path="/config/"
+              render={() => (
+                <Config
+                  showDoneTodos={this.state.showDoneTodos}
+                  onToggle={this.toggleShowDoneTodos}
+                />
+              )}
+            />
+          </div>
+          <NavWrapper>
+            <NavLink exact activeClassName="active" to="/">
+              Home
+            </NavLink>
+            <NavLink activeClassName="active" to="/config/">
+              Settings
+            </NavLink>
+          </NavWrapper>
+        </Wrapper>
+      </Router>
+    )
+  }
+}
